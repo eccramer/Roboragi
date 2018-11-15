@@ -97,32 +97,32 @@ def test_comment_parsing(comment: str, requests: List[Request]) -> None:
     pytest.param(
         ']light novel0[ ]light novel1[',
         [
-            Request(tag=Tag.MANGA, body='light novel0'),
-            Request(tag=Tag.MANGA, body='light novel1')
+            Request(tag=Tag.LIGHT_NOVEL, body='light novel0'),
+            Request(tag=Tag.LIGHT_NOVEL, body='light novel1')
         ],
         id='light novel'
     ),
     pytest.param(
         ']]light novel0[[ ]]light novel1[[',
         [
-            Request(tag=Tag.MANGA, body='light novel0', expanded=True),
-            Request(tag=Tag.MANGA, body='light novel1', expanded=True)
+            Request(tag=Tag.LIGHT_NOVEL, body='light novel0', expanded=True),
+            Request(tag=Tag.LIGHT_NOVEL, body='light novel1', expanded=True)
         ],
         id='expanded light novel'
     ),
     pytest.param(
         '|visual novel0| |visual novel1|',
         [
-            Request(tag=Tag.MANGA, body='visual novel0'),
-            Request(tag=Tag.MANGA, body='visual novel1')
+            Request(tag=Tag.VISUAL_NOVEL, body='visual novel0'),
+            Request(tag=Tag.VISUAL_NOVEL, body='visual novel1')
         ],
         id='visual novel'
     ),
     pytest.param(
         '||visual novel0|| ||visual novel1||',
         [
-            Request(tag=Tag.MANGA, body='visual novel0', expanded=True),
-            Request(tag=Tag.MANGA, body='visual novel1', expanded=True)
+            Request(tag=Tag.VISUAL_NOVEL, body='visual novel0', expanded=True),
+            Request(tag=Tag.VISUAL_NOVEL, body='visual novel1', expanded=True)
         ],
         id='expanded visual novel'
     ),
